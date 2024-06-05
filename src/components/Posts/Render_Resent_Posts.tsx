@@ -2,6 +2,7 @@ import React from "react";
 
 import { Render_Posts } from "../../interface/Posts/types";
 import { FaRegHeart } from "react-icons/fa";
+import { useState } from "react";
 
 interface RenderResentPostsProps {
   posts: Render_Posts;
@@ -9,10 +10,24 @@ interface RenderResentPostsProps {
 export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
   posts,
 }) => {
+  const [changeHeartColorwhenMouseEnter, setChangeColorwhenMouseEnter] =
+    useState<boolean>(false);
+
+  const whenMouseEnter = (e) => {
+    setChangeColorwhenMouseEnter(true);
+  };
+
+  const whenMouseOut = (e) => {
+    setChangeColorwhenMouseEnter(false);
+  };
   return (
     <>
       <div>
-        <div className="relative border rounded-lg border-[6px] border-yellow-300">
+        <div
+          onMouseEnter={whenMouseEnter}
+          onMouseLeave={whenMouseOut}
+          className="relative border rounded-lg border-[6px] border-yellow-300 cursor-pointer"
+        >
           {posts.business_type === "Dealer" && (
             <span className="absolute w-[70px] h-[40px] text-center bg-yellow-300 text-white">
               {posts.business_type}
@@ -22,10 +37,16 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
             className="object-cover rounded-lg h-48 w-96"
             src={posts.image}
           ></img>
-          <div className="bg-black w-[45px] h-[45px] right-3 b absolute rounded-lg bottom-3 opacity-70 border-white border"></div>
+          <div
+            className={`${
+              changeHeartColorwhenMouseEnter
+                ? "bg-white opacity-100"
+                : "bg-black opacity-70"
+            } w-[45px] h-[45px] right-3 b absolute rounded-lg bottom-3   border-white border`}
+          ></div>
           <FaRegHeart
             size={25}
-            color="white"
+            color={changeHeartColorwhenMouseEnter ? "black" : "white"}
             className="absolute right-[10px]  right-[21px] bottom-5  opacity-100 cursor-pointer"
           />
         </div>
