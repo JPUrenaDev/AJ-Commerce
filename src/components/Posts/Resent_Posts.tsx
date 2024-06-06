@@ -72,7 +72,7 @@ export const Resent_Posts = () => {
         </div>
       </div>
 
-      <div className="flex gap-[40px] h-full flex-wrap items-center">
+      <div className="flex gap-[40px] pb-4 h-full  items-center">
         {posts.map((values, index) => {
           return <Render_Resent_Posts key={index} posts={values} />;
         })}
