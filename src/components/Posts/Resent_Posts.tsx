@@ -34,7 +34,7 @@ const posts: Render_Posts[] = [
     moreDetails: "test",
     price: 11333,
     business_type: "Dealer",
-    isVerify: false,
+    isVerify: true,
   },
   {
     title: "Test",
