@@ -31,16 +31,18 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
   };
   return (
     <>
-      <div>
+      <div className=" h-[330px]">
         <div
           onMouseEnter={whenMouseEnter}
           onMouseLeave={whenMouseOut}
-          className={`relative border rounded-lg border-[6px] ${color} cursor-pointer`}
+          className={`relative border rounded-lg border-[6px]  ${color} cursor-pointer`}
         >
           <span
-            className={`absolute w-[70px] h-[40px] text-center ${color} text-white`}
+            className={`absolute w-[77px] h-[40px]  text-center rounded-br-lg ${color} text-white`}
           >
-            {posts.business_type}
+            <span className="absolute top-1 right-4">
+              {posts.business_type}
+            </span>
           </span>
 
           <img className="object-cover h-48 w-96" src={posts.image}></img>
@@ -68,12 +70,12 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
           <span>RD$</span>
           {posts.price}
         </h1>
-        <h2 className="mb-5">{posts.details}</h2>
+        <h2 className="">{posts.details}</h2>
         {posts.isVerify && (
-          <div className="flex items-center gap-2">
-            <RiVerifiedBadgeFill size={27} color="gray" />{" "}
+          <>
+            <RiVerifiedBadgeFill size={27} color="gray" />
             <span>Cuenta verificada</span>
-          </div>
+          </>
         )}
       </div>
     </>
