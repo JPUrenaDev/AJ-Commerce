@@ -5,4 +5,5 @@ export interface Render_Posts {
   moreDetails: string;
   title: string;
   business_type: string;
+  isVerify: boolean;
 }

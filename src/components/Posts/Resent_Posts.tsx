@@ -14,6 +14,7 @@ const posts: Render_Posts[] = [
     moreDetails: "Usado - Como Nuevo",
     price: 10000,
     business_type: "Tienda",
+    isVerify: true,
   },
   {
     title: "Test",
@@ -23,6 +24,7 @@ const posts: Render_Posts[] = [
     moreDetails: "test",
     price: 11333,
     business_type: "Dealer",
+    isVerify: false,
   },
   {
     title: "Test",
@@ -32,6 +34,7 @@ const posts: Render_Posts[] = [
     moreDetails: "test",
     price: 11333,
     business_type: "Dealer",
+    isVerify: false,
   },
   {
     title: "Test",
@@ -41,6 +44,7 @@ const posts: Render_Posts[] = [
     moreDetails: "test",
     price: 11333,
     business_type: "Dealer",
+    isVerify: false,
   },
   {
     title: "Test",
@@ -50,6 +54,7 @@ const posts: Render_Posts[] = [
     moreDetails: "test",
     price: 11333,
     business_type: "Dealer",
+    isVerify: false,
   },
 ];
 

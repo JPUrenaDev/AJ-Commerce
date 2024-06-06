@@ -3,7 +3,7 @@ import React from "react";
 import { Render_Posts } from "../../interface/Posts/types";
 import { FaRegHeart } from "react-icons/fa";
 import { useState } from "react";
-
+import { RiVerifiedBadgeFill } from "react-icons/ri";
 interface RenderResentPostsProps {
   posts: Render_Posts;
 }
@@ -13,11 +13,20 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
   const [changeHeartColorwhenMouseEnter, setChangeColorwhenMouseEnter] =
     useState<boolean>(false);
 
-  const whenMouseEnter = (e) => {
+  const color =
+    posts.business_type === "Dealer"
+      ? "border-yellow-300 bg-yellow-300"
+      : posts.business_type === "Tienda"
+      ? "border-blue-300 bg-blue-300"
+      : "";
+
+  console.log(color);
+
+  const whenMouseEnter = () => {
     setChangeColorwhenMouseEnter(true);
   };
 
-  const whenMouseOut = (e) => {
+  const whenMouseOut = () => {
     setChangeColorwhenMouseEnter(false);
   };
   return (
@@ -26,17 +35,15 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
         <div
           onMouseEnter={whenMouseEnter}
           onMouseLeave={whenMouseOut}
-          className="relative border rounded-lg border-[6px] border-yellow-300 cursor-pointer"
+          className={`relative border rounded-lg border-[6px] ${color} cursor-pointer`}
         >
-          {posts.business_type === "Dealer" && (
-            <span className="absolute w-[70px] h-[40px] text-center bg-yellow-300 text-white">
-              {posts.business_type}
-            </span>
-          )}
-          <img
-            className="object-cover rounded-lg h-48 w-96"
-            src={posts.image}
-          ></img>
+          <span
+            className={`absolute w-[70px] h-[40px] text-center ${color} text-white`}
+          >
+            {posts.business_type}
+          </span>
+
+          <img className="object-cover h-48 w-96" src={posts.image}></img>
           <div
             className={`${
               changeHeartColorwhenMouseEnter
@@ -61,7 +68,13 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
           <span>RD$</span>
           {posts.price}
         </h1>
-        <h2>{posts.details}</h2>
+        <h2 className="mb-5">{posts.details}</h2>
+        {posts.isVerify && (
+          <div className="flex items-center gap-2">
+            <RiVerifiedBadgeFill size={27} color="gray" />{" "}
+            <span>Cuenta verificada</span>
+          </div>
+        )}
       </div>
     </>
   );
