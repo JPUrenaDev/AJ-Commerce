@@ -7,3 +7,16 @@ export interface Render_Posts {
   business_type: string;
   isVerify: boolean;
 }
+
+export interface Login {
+  email: string;
+  password: string;
+}
+
+export interface PasswordCriteria {
+  minimunCharacters: boolean;
+  atLeastOneNumber: boolean;
+  atLeastOneCapLock: boolean;
+  atLeastOneLowerCase: boolean;
+  atLeastOneSpecialCharacter: boolean;
+}

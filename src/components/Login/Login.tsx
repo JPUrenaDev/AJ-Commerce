@@ -2,14 +2,34 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoIosEye } from "react-icons/io";
 import { FaRegEyeSlash } from "react-icons/fa";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+  email: string;
+  exampleRequired: string;
+  password: string;
+};
+
 export const Login = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   const whenClickToEyeToShowPassword = () => {
     showPassword ? setShowPassword(!showPassword) : setShowPassword(true);
   };
   return (
-    <div className="border-[04px] rounded-lg border-neutral-200 mt-4 bg-white w-[500px] mx-auto my-auto h-[800px] px-8 flex flex-col gap-6">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="border-[04px] rounded-lg border-neutral-200 mt-4 bg-white w-[500px] mx-auto my-auto h-[800px] px-8 flex flex-col gap-6"
+    >
       <div>
         <img
           className="mx-auto"
@@ -30,21 +50,37 @@ export const Login = () => {
           <label className="font-bold">Correo electrónico</label>
 
           <input
-            className="bg-sky-100 w-[430px] h-[40px] px-3"
+            className={`w-[430px] h-[40px] px-3 border-2 bg-sky-100 ${
+              errors.email?.type == "required" ? "border-rose-600" : ""
+            } `}
             type="email"
             placeholder="correo electronico"
+            {...register("email", { required: true })}
           ></input>
+          {errors.email?.type === "required" && (
+            <p className="text-red-400 font-bold" role="alert">
+              Email is required
+            </p>
+          )}
         </div>
         <div className="flex flex-col gap-4 mb-5 relative">
           <label className="font-bold">Contraseña</label>
 
           <input
-            className="bg-sky-100 w-[430px] h-[40px] px-3"
+            className={`w-[430px] h-[40px] px-3 border-2 bg-sky-100 ${
+              errors.password?.type == "required" ? "border-rose-600" : ""
+            } `}
             placeholder="contrasena"
             id="password"
+            {...register("password", { required: true })}
+            aria-invalid={errors.password ? "true" : "false"}
             type={`${!showPassword ? "password" : "text"}`}
           ></input>
-
+          {errors.password?.type === "required" && (
+            <p className="text-red-400 font-bold" role="alert">
+              Password is required
+            </p>
+          )}
           {showPassword ? (
             <IoIosEye
               className="absolute  top-[45px] right-[10px] cursor-pointer"
@@ -74,6 +110,6 @@ export const Login = () => {
           Registrate
         </Link>
       </h3>
-    </div>
+    </form>
   );
 };
