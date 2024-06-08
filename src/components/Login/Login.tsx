@@ -55,13 +55,17 @@ export const Login = () => {
             } `}
             type="email"
             placeholder="correo electronico"
-            {...register("email", { required: true })}
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value:
+                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: "Please enter a valid email",
+              },
+            })}
           ></input>
-          {errors.email?.type === "required" && (
-            <p className="text-red-400 font-bold" role="alert">
-              Email is required
-            </p>
-          )}
+
+          {errors.email?.message && <p>{errors.email.message}</p>}
         </div>
         <div className="flex flex-col gap-4 mb-5 relative">
           <label className="font-bold">Contraseña</label>
@@ -72,15 +76,17 @@ export const Login = () => {
             } `}
             placeholder="contrasena"
             id="password"
-            {...register("password", { required: true })}
+            {...register("password", { required: true, minLength: 12 })}
             aria-invalid={errors.password ? "true" : "false"}
             type={`${!showPassword ? "password" : "text"}`}
           ></input>
+
           {errors.password?.type === "required" && (
             <p className="text-red-400 font-bold" role="alert">
               Password is required
             </p>
           )}
+
           {showPassword ? (
             <IoIosEye
               className="absolute  top-[45px] right-[10px] cursor-pointer"
