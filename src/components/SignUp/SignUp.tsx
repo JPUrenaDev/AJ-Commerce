@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { useEffect } from "react";
+import { useRef } from "react";
+
+import { FaRegCircle } from "react-icons/fa";
+
 interface IFormInput {
   userName: string;
   email: string;
@@ -18,14 +24,13 @@ const passwordCriteriasOptions = [
 ];
 
 export const SignUp = () => {
-  const [actualPage, setActualPage] = useState<number>(1);
-  const [passwordCriteriaState, setPasswordCriteriaState] = useState<object>({
-    minCharacters: false,
-    atLeastOneNumber: false,
-    atLeastOneCapLock: false,
-    atLeastOneLowerCase: false,
-    atLeastOneSpecialCharacter: false,
+  //this code is to figured out how many times this component has been rendered.
+  const renderCount = useRef(0);
+  useEffect(() => {
+    renderCount.current += 1;
   });
+  //this code is to figured out how many times this component has been rendered.
+  const [actualPage, setActualPage] = useState<number>(1);
 
   const {
     register,
@@ -92,30 +97,49 @@ export const SignUp = () => {
         <label className="font-bold">Contraseña</label>
         <input
           {...register("password", {
-            validate: {
-              isUpper: (value) => /[a-z]/.test(value) || "Lower",
-              isLower: (value) => /[A-Z]/.test(value) || "Upper",
-              isNumber: (value) => /[0-9]/.test(value) || "Number",
+            required: true,
+            minLength: {
+              value: 12,
+              message: "password must have at least 12 characters long",
             },
-            // pattern: { value: /[a-z]/, message: "lowerCase" },
+            validate: {
+              isUpper: (value) => {
+                return (
+                  [/[a-z]/, /[A-Z]/, /[0-9]/].every((pattern) =>
+                    pattern.test(value)
+                  ) ||
+                  "You must choose a password that cointains special chars, only lower, upper, number"
+                );
+              },
+            },
           })}
           type="password"
           placeholder="Introduce tu contraseña:"
           className="bg-white border-2 h-[40px] px-3 border-zinc-500 rounded-md"
         ></input>
       </div>
-      {console.log(errors.password?.message)}
 
       <div className="flex flex-col gap-2">
         {passwordCriteriasOptions.map((values) => {
           return (
             <div className="flex items-center gap-2">
-              <h4 className="rounded-full w-[20px] h-[20px] border-2 border-zinc-500 "></h4>
+              {(errors.password?.message && renderCount.current >= 1) ||
+              renderCount.current == 0 ||
+              errors.password?.message?.length == 0 ? (
+                <FaRegCircle />
+              ) : (
+                <FaRegCheckCircle className="text-yellow-300" />
+              )}
+
               <h4>{values}</h4>
             </div>
           );
         })}
+
+        {errors.password?.message && <p>{errors.password.message}</p>}
       </div>
+
+      {console.log()}
       <div className="flex flex-col gap-3">
         <label className="font-bold">Confirmar Contraseña</label>
         <input
