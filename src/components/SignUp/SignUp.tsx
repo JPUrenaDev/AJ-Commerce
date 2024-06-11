@@ -133,8 +133,8 @@ export const SignUp = () => {
             validate: {
               isUpper: (value) => {
                 return (
-                  [/[a-z]/, /[A-Z]/, /[0-9]/].every((pattern) =>
-                    pattern.test(value)
+                  [/[a-z]/, /[A-Z]/, /[0-9]/, /[$&+,:;=?@#|'<>.^*()%!-]/].every(
+                    (pattern) => pattern.test(value)
                   ) ||
                   "You must choose a password that cointains special chars, only lower, upper, number"
                 );
@@ -146,8 +146,6 @@ export const SignUp = () => {
           className="bg-white border-2 h-[40px] px-3 border-zinc-500 rounded-md"
         ></input>
       </div>
-
-      {console.log(errors.repeatPassword?.message)}
       <div className="flex flex-col gap-2">
         {passwordCriteriasOptions.map((values) => {
           return (
