@@ -6,8 +6,15 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { useEffect } from "react";
 import { useRef } from "react";
-
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from "../../redux/changePageSliceSignUp";
+import { useSelector, useDispatch } from "react-redux";
 import { FaRegCircle } from "react-icons/fa";
+import { error } from "console";
+import { current } from "@reduxjs/toolkit";
 
 interface IFormInput {
   userName: string;
@@ -24,6 +31,9 @@ const passwordCriteriasOptions = [
 ];
 
 export const SignUp = () => {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
   //this code is to figured out how many times this component has been rendered.
   const renderCount = useRef(0);
   useEffect(() => {
@@ -32,9 +42,18 @@ export const SignUp = () => {
   //this code is to figured out how many times this component has been rendered.
   const [actualPage, setActualPage] = useState<number>(1);
 
+  //update sign up page (register)
+  const changeSignUpPage = () => {
+    setActualPage((prevValue) => prevValue + 1);
+  };
+
+  const changeSignUpPagePrevious = () => {
+    setActualPage((prevValue) => prevValue - 1);
+  };
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<IFormInput>({ mode: "onChange" });
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
@@ -46,7 +65,12 @@ export const SignUp = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="border-[04px] rounded-lg border-neutral-200 mt-4 bg-white w-[500px] mx-auto my-auto h-[1000px] px-8 flex flex-col gap-6"
     >
-      <IoIosArrowRoundBack size={30} className="mt-5 cursor-pointer " />
+      <button onClick={() => dispatch(incrementByAmount(29))}>{count}</button>
+      <IoIosArrowRoundBack
+        onClick={changeSignUpPagePrevious}
+        size={30}
+        className="mt-5 cursor-pointer "
+      />
       <h1 className="font-bold text-[30px] text-center">Regístrate</h1>
 
       <div className="flex gap-4 relative ">
@@ -58,8 +82,12 @@ export const SignUp = () => {
             ${index == 2 ? " w-[90px]" : "w-[140px]"} h-[08px]  rounded-lg `}
           ></span>
         ))}
+
+        {/*this is the circle that appears upper the form */}
         <FaCheckCircle
-          className="absolute right-[-7px] bottom-[-13px]  text-zinc-300   "
+          className={`absolute right-[-7px] bottom-[-13px] ${
+            actualPage == 3 ? "text-blue-400" : "text-zinc-300"
+          } `}
           size={40}
         />
       </div>
@@ -119,16 +147,18 @@ export const SignUp = () => {
         ></input>
       </div>
 
+      {console.log(errors.repeatPassword?.message)}
       <div className="flex flex-col gap-2">
         {passwordCriteriasOptions.map((values) => {
           return (
             <div className="flex items-center gap-2">
-              {(errors.password?.message && renderCount.current >= 1) ||
-              renderCount.current == 0 ||
-              errors.password?.message?.length == 0 ? (
+              {errors.password?.message && watch("password")?.length >= 1 ? (
                 <FaRegCircle />
-              ) : (
+              ) : !errors.password?.message &&
+                watch("password")?.length >= 1 ? (
                 <FaRegCheckCircle className="text-yellow-300" />
+              ) : (
+                !watch("password") && <FaRegCircle />
               )}
 
               <h4>{values}</h4>
@@ -138,8 +168,6 @@ export const SignUp = () => {
 
         {errors.password?.message && <p>{errors.password.message}</p>}
       </div>
-
-      {console.log()}
       <div className="flex flex-col gap-3">
         <label className="font-bold">Confirmar Contraseña</label>
         <input
@@ -148,7 +176,10 @@ export const SignUp = () => {
           type="password"
         ></input>
       </div>
-      <button className="bg-slate-500  mx-auto  w-[430px] h-[50px] text-white rounded-md ">
+      <button
+        onClick={changeSignUpPage}
+        className="bg-slate-500  mx-auto  w-[430px] h-[50px] text-white rounded-md "
+      >
         Continuar
       </button>
       <hr className="border-zinc-500"></hr>
