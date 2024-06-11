@@ -13,8 +13,6 @@ import {
 } from "../../redux/changePageSliceSignUp";
 import { useSelector, useDispatch } from "react-redux";
 import { FaRegCircle } from "react-icons/fa";
-import { error } from "console";
-import { current } from "@reduxjs/toolkit";
 
 interface IFormInput {
   userName: string;
@@ -63,9 +61,8 @@ export const SignUp = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="border-[04px] rounded-lg border-neutral-200 mt-4 bg-white w-[500px] mx-auto my-auto h-[1000px] px-8 flex flex-col gap-6"
+      className="border-[04px] rounded-lg border-neutral-200 mt-4 bg-white w-[500px] mx-auto my-auto h-[1100px] px-8 flex flex-col gap-6"
     >
-      <button onClick={() => dispatch(incrementByAmount(29))}>{count}</button>
       <IoIosArrowRoundBack
         onClick={changeSignUpPagePrevious}
         size={30}
@@ -86,7 +83,7 @@ export const SignUp = () => {
         {/*this is the circle that appears upper the form */}
         <FaCheckCircle
           className={`absolute right-[-7px] bottom-[-13px] ${
-            actualPage == 3 ? "text-blue-400" : "text-zinc-300"
+            actualPage > 2 ? "text-blue-400" : "text-zinc-300"
           } `}
           size={40}
         />
