@@ -1,7 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
-export const Footer = () => {
+import { Outlet } from "react-router-dom";
+export const FooterSignUp = () => {
   return (
     <div>
+      <hr className="border-zinc-500"></hr>
       <p>
         Al continuar, aceptas los{" "}
         <Link className="text-blue-400" to={"/"}>

@@ -20,3 +20,14 @@ export interface PasswordCriteria {
   atLeastOneLowerCase: boolean;
   atLeastOneSpecialCharacter: boolean;
 }
+
+export interface IFormInput {
+  userName: string;
+  email: string;
+  password: string;
+  repeatPassword: string;
+}
+
+export interface FormProps {
+  height: number;
+}
