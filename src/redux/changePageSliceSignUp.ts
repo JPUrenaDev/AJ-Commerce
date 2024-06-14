@@ -40,8 +40,6 @@ export const changePageSignUpSlice = createSlice({
       state,
       action: PayloadAction<IFormInput>
     ) => {
-      alert(1);
-      console.log(action.payload);
       state.accountInformation = action.payload;
     },
   },
