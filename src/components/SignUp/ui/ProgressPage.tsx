@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { FaCheckCircle } from "react-icons/fa";
 const pages = Array.from("123");

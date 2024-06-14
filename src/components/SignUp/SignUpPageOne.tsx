@@ -7,6 +7,7 @@ import { passwordCriteriasOptions } from "./helper/passwordCriteriaOptions";
 import {
   dontAdvanceNextPage,
   advanceNextPage,
+  getAndSaveAccountInformation,
 } from "../../redux/changePageSliceSignUp";
 
 import { IFormInput } from "../../interface/Posts/types";
@@ -20,32 +21,28 @@ import { ButtonContinueSignUp } from "./ui/ButtonContinueSignUp";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 export const SignUpPageOne = () => {
-  //this code is to figured out how many times this component has been rendered.
-
-  const renderCount = useRef(0);
-  useEffect(() => {
-    renderCount.current += 1;
-  });
-  //this code is to figured out how many times this component has been rendered.
   const dispatch = useDispatch();
-  const actualPage = useSelector((state: RootState) => state.counter?.value);
-
-  //this code is to figured out how many times this component has been rendered.
-
-  //update sign up page (register)
+  const accountInformation = useSelector(
+    (state: RootState) => state.counter.accountInformation
+  );
 
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isValid },
-  } = useForm<IFormInput>({ mode: "onChange" });
+  } = useForm<IFormInput>({
+    mode: "onChange",
+    defaultValues: accountInformation,
+  });
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    isValid ? dispatch(advanceNextPage()) : dispatch(dontAdvanceNextPage());
+    if (isValid && data.password == data.repeatPassword) {
+      dispatch(advanceNextPage());
+      dispatch(getAndSaveAccountInformation(data));
+    }
   };
 
-  const pages = Array.from("123");
-  console.log(errors);
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -134,10 +131,22 @@ export const SignUpPageOne = () => {
       <div className="flex flex-col gap-3">
         <label className="font-bold">Confirmar Contraseña</label>
         <input
+          {...register("repeatPassword", {
+            validate: (value) =>
+              value == watch("password") || "Password doesn't Match",
+          })}
           placeholder="Confirme su Contraseña:"
           className="bg-white border-2 h-[40px] px-3 border-zinc-500 rounded-md"
           type="password"
         ></input>
+        <p className="text-blue-800">
+          {watch("repeatPassword").length > 1 &&
+          !errors.repeatPassword?.message ? (
+            <p className="text-blue-300">Passwords match</p>
+          ) : (
+            <p className="text-red-800">{errors.repeatPassword?.message}</p>
+          )}
+        </p>
       </div>
       <ButtonContinueSignUp />
       <FooterSignUp />

@@ -8,9 +8,11 @@ export interface Render_Posts {
   isVerify: boolean;
 }
 
-export interface Login {
+export interface userData {
   email: string;
   password: string;
+  username: string;
+  repeatPassword: string;
 }
 
 export interface PasswordCriteria {
