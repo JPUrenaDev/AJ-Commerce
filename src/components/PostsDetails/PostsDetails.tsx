@@ -6,6 +6,7 @@ import { SaveInFavorite } from "./ui/SaveInFavorite";
 import { DoOffer } from "./ui/DoOffer";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaTag } from "react-icons/fa";
+import { SellerCard } from "./SellerCard";
 
 export const PostsDetails = () => {
   return (
@@ -40,10 +41,12 @@ export const PostsDetails = () => {
             </div>
           </div>
         </div>
+
         <div className="rounded-l-lg  bg-black w-[35px]  py-[20px] mr-4 ml-4 opacity-75 pl-1 cursor-pointer">
           <IoIosArrowForward size={30} color="white" />
         </div>
       </div>
+
       <div>
         <hr className="border-salate-500"></hr>
         <ChangePagePostsDetails />
@@ -74,6 +77,8 @@ export const PostsDetails = () => {
                 <FaTag color="gray" size={25} />
                 <h2>Libros y revistas</h2>
               </div>
+
+              <SellerCard />
             </div>
           </div>
         </div>
