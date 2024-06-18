@@ -1,5 +1,5 @@
 import { SignUpPageOne } from "./SignUpPageOne";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { SignUpPageTwo } from "./SignUpPageTwo";
 import { SignUpPageThree } from "./SignUpPageThree";

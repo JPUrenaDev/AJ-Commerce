@@ -1,23 +1,17 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaRegCheckCircle } from "react-icons/fa";
-import { useEffect } from "react";
-import { useRef } from "react";
 import { RootState } from "../../redux/store";
 import { passwordCriteriasOptions } from "./helper/passwordCriteriaOptions";
 import {
-  dontAdvanceNextPage,
   advanceNextPage,
   getAndSaveAccountInformation,
 } from "../../redux/changePageSliceSignUp";
-
 import { IFormInput } from "../../interface/Posts/types";
 import { useSelector, useDispatch } from "react-redux";
 import { FaRegCircle } from "react-icons/fa";
 import { ProgressPage } from "./ui/ProgressPage";
-
 import { FooterSignUp } from "./ui/FooterSignUp";
 import { ButtonContinueSignUp } from "./ui/ButtonContinueSignUp";
-
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 export const SignUpPageOne = () => {
@@ -37,7 +31,7 @@ export const SignUpPageOne = () => {
   });
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    if (isValid && data.password == data.repeatPassword) {
+    if (isValid) {
       dispatch(advanceNextPage());
       dispatch(getAndSaveAccountInformation(data));
     }
@@ -55,13 +49,19 @@ export const SignUpPageOne = () => {
         <label className="font-bold">Nombre para mostrar</label>
 
         <input
-          {...register("userName", { required: true, minLength: 5 })}
+          {...register("userName", {
+            required: "Username is required",
+            minLength: 5,
+          })}
           placeholder={"Inserte su username"}
           className="bg-white border-2 h-[40px] px-3 border-zinc-500 rounded-md"
         ></input>
 
         {errors?.userName?.type === "minLength" && (
           <p>You must insert a username with at least 5 characters</p>
+        )}
+        {errors.userName?.message && (
+          <p className="text-red-800">{errors.userName?.message}</p>
         )}
       </div>
       <div className="flex flex-col gap-3">
@@ -79,7 +79,9 @@ export const SignUpPageOne = () => {
           placeholder="Introduce tu Email:"
           className="bg-white border-2 h-[40px] px-3 border-zinc-500 rounded-md"
         ></input>
-        {errors.email?.message && <p>{errors.email.message}</p>}
+        {errors.email?.message && (
+          <p className="bg-bold">{errors.email.message}</p>
+        )}
       </div>
 
       <div className="flex flex-col gap-3">
@@ -90,7 +92,7 @@ export const SignUpPageOne = () => {
           type="password"
           placeholder={"Introduce tu contraseña"}
           {...register("password", {
-            required: true,
+            required: "Password is required",
             minLength: {
               value: 12,
               message: "password must have at least 12 characters long",
@@ -108,6 +110,10 @@ export const SignUpPageOne = () => {
           })}
         ></input>
       </div>
+      {errors.password?.message && (
+        <p className="bg-bold">{errors.password.message}</p>
+      )}
+
       <div className="flex flex-col gap-2">
         {passwordCriteriasOptions.map((values) => {
           return (
@@ -125,8 +131,6 @@ export const SignUpPageOne = () => {
             </div>
           );
         })}
-
-        {errors.password?.message && <p>{errors.password.message}</p>}
       </div>
       <div className="flex flex-col gap-3">
         <label className="font-bold">Confirmar Contraseña</label>

@@ -6,6 +6,7 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { Login } from "./components/Login/Login";
 import { SignUp } from "./components/SignUp/SignUp";
 import { BrowserRouter } from "react-router-dom";
+import { PostsDetails } from "./components/PostsDetails/PostsDetails";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -16,6 +17,7 @@ function App() {
         <Resent_Posts />
         <SignUp />
         <Login />
+        <PostsDetails />
       </BrowserRouter>
     </>
   );

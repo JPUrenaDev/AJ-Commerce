@@ -12,12 +12,12 @@ export const ProgressPage = () => {
           className={`${
             index + 1 <= actualPage ? "bg-blue-400" : "bg-zinc-300"
           } 
-        ${index == 2 ? " w-[90px]" : "w-[140px]"} h-[08px]  rounded-lg `}
+        ${index == 4 ? " w-[90px]" : "w-[140px]"} h-[08px]  rounded-lg `}
         ></span>
       ))}
 
       <FaCheckCircle
-        className={`absolute right-[-7px] bottom-[-13px] ${
+        className={`absolute right-[-7px] bottom-[-13px] bg-white rounded-full ${
           actualPage > 2 ? "text-blue-400" : "text-zinc-300"
         } `}
         size={40}
