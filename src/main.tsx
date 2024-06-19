@@ -9,6 +9,9 @@ import { SignUp } from "./components/SignUp/SignUp.tsx";
 import { FooterSignUp } from "./components/SignUp/ui/FooterSignUp.tsx";
 import { NavBar } from "./components/NavBar/NavBar.tsx";
 import { RouterProvider } from "react-router";
+import { Resent_Posts } from "./components/Posts/Resent_Posts.tsx";
+import { Login } from "./components/Login/Login.tsx";
+import { PostsDetails } from "./components/PostsDetails/PostsDetails.tsx";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +20,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <FooterSignUp />,
+        element: <Resent_Posts />,
+      },
+      {
+        path: "/postsDetails",
+        element: <PostsDetails />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
@@ -29,6 +40,8 @@ const router = createBrowserRouter([
 */
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <App />
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
   </Provider>
 );

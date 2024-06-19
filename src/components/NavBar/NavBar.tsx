@@ -1,6 +1,7 @@
 import React from "react";
 import { SearchBar } from "./SearchBar";
 import { Outlet } from "react-router";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   return (
@@ -11,15 +12,17 @@ export const NavBar = () => {
       >
         <h1 className="text-white">J&A Commerce</h1>
         <SearchBar />
-        <h4 className="text-white font-semibold cursor-pointer">
+        <Link to={"/login"} className="text-white font-semibold cursor-pointer">
           Iniciar sesión
-        </h4>
+        </Link>
         <button className="bg-yellow-400 p-2 rounded text-blue-900 font-semibold">
           + Publicar
         </button>
       </div>
 
-      <Outlet />
+      <div className="mt-[300px]">
+        <Outlet />
+      </div>
     </>
   );
 };

@@ -9,6 +9,7 @@ import { FaTag } from "react-icons/fa";
 import { SellerCard } from "./SellerCard";
 import { RiErrorWarningFill } from "react-icons/ri";
 import { useState } from "react";
+import { RelatedPosts } from "./RelatedPosts";
 export const PostsDetails = () => {
   const [photosDetailPosts, setPhotosDetailPosts] = useState([
     {
@@ -45,9 +46,9 @@ export const PostsDetails = () => {
     setCurrentPhoto((previousValue) => previousValue - 1);
   };
   return (
-    <div className="flex items-start mt-4 w-[1300px]  mx-auto gap-[30px] pb-[30px]">
+    <div className="flex items-start  w-[1300px]  mx-auto gap-[30px] pb-[30px]">
       <div className="flex items-center  px-[60px] ">
-        <div className="rounded-r-lg bg-black w-[35px]  py-[20px] mr-4 ml-4 mb-[300px] opacity-75 ml-1 cursor-pointer">
+        <div className="rounded-r-lg bg-black w-[35px]  py-[20px] mr-4 ml-4 mb-[700px] opacity-75 ml-1 cursor-pointer">
           <IoIosArrowBack
             size={30}
             color="white"
@@ -55,6 +56,7 @@ export const PostsDetails = () => {
             onClick={onPreviousPhoto}
           />
         </div>
+
         <div>
           <div className="flex flex-col">
             <img
@@ -100,9 +102,12 @@ export const PostsDetails = () => {
               Para talla mujer mediana petite
             </p>
           </div>
+          <div>
+            <RelatedPosts />
+          </div>
         </div>
 
-        <div className="rounded-l-lg  bg-black w-[35px] mb-[90px] py-[20px] mb-[300px] mr-4 ml-4 opacity-75 pl-1 cursor-pointer">
+        <div className="rounded-l-lg  bg-black w-[35px] mb-[700px] py-[20px] mb-[300px] mr-4 ml-4 opacity-75 pl-1 cursor-pointer">
           <IoIosArrowForward size={30} color="white" onClick={onNextPhoto} />
         </div>
       </div>

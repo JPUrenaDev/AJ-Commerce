@@ -20,8 +20,6 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
       ? "border-blue-300 bg-blue-300"
       : "";
 
-  console.log(color);
-
   const whenMouseEnter = () => {
     setChangeColorwhenMouseEnter(true);
   };
