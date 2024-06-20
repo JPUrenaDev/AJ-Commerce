@@ -9,6 +9,7 @@ interface RenderResentPostsProps {
 }
 export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
   posts,
+  relatedPost,
 }) => {
   const [changeHeartColorwhenMouseEnter, setChangeColorwhenMouseEnter] =
     useState<boolean>(false);
@@ -58,17 +59,35 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
           />
         </div>
 
-        <h3>
-          {posts.title.length > 10
-            ? posts.title.substring(0, 40) + "..."
-            : posts.title}
-        </h3>
+        {/* THE PRESENTATION OF THE ITEMS IS GONNA BE DIFFERENT IF IS THE RELATED POSTED OR THE ITEMS* */}
+        {relatedPost ? (
+          <>
+            <h1 className="font-bold">
+              <span>RD$</span>
+              {posts.price}
+            </h1>{" "}
+            <h3>
+              {posts.title.length > 10
+                ? posts.title.substring(0, 19) + "..."
+                : posts.title}
+            </h3>{" "}
+          </>
+        ) : (
+          <>
+            <h3>
+              {posts.title.length > 10
+                ? posts.title.substring(0, 40) + "..."
+                : posts.title}
+            </h3>
 
-        <h1 className="font-bold">
-          <span>RD$</span>
-          {posts.price}
-        </h1>
-        <h2 className="">{posts.details}</h2>
+            <h1 className="font-bold">
+              <span>RD$</span>
+              {posts.price}
+            </h1>
+            <h2 className="">{posts.details}</h2>
+          </>
+        )}
+
         {posts.isVerify && (
           <>
             <RiVerifiedBadgeFill size={27} color="gray" />

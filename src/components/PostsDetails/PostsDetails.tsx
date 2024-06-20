@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { ChangePagePostsDetails } from "./ChangePagePostsDetails";
@@ -10,19 +9,24 @@ import { SellerCard } from "./SellerCard";
 import { RiErrorWarningFill } from "react-icons/ri";
 import { useState } from "react";
 import { RelatedPosts } from "./RelatedPosts";
+import { SellerCardVerifedCustomer } from "./SellerCardVerifedCustomer";
 export const PostsDetails = () => {
   const [photosDetailPosts, setPhotosDetailPosts] = useState([
     {
       img: "https://www.corotos.com.do/imagenes/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCUFRSaGdJPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--c5a5d867cc35f61a30d89e6855152f68ea9956f0/9e2ef873_0c2c_42e6_a2f0_55398776c154_jpg?variant_options%5Bformat%5D=webp&variant_options%5Bresize_to_fit%5D%5B%5D=1280&variant_options%5Bresize_to_fit%5D%5B%5D=720",
+      isVerified: true,
     },
     {
       img: "https://www.corotos.com.do/imagenes/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCUFRSaGdJPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--c5a5d867cc35f61a30d89e6855152f68ea9956f0/9e2ef873_0c2c_42e6_a2f0_55398776c154_jpg?variant_options%5Bformat%5D=webp&variant_options%5Bresize_to_fit%5D%5B%5D=1280&variant_options%5Bresize_to_fit%5D%5B%5D=720",
+      isVerified: true,
     },
     {
       img: "https://www.corotos.com.do/imagenes/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCUExSaGdJPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--899aa1bd92789a9d98b9d42cb8978310ef694589/aeb6d040_f977_4e2e_a512_e20644a8d6d1_jpg?variant_options%5Bformat%5D=webp&variant_options%5Bresize_to_fit%5D%5B%5D=1280&variant_options%5Bresize_to_fit%5D%5B%5D=720",
+      isVerified: false,
     },
     {
       img: "https://www.corotos.com.do/imagenes/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCUFBSaGdJPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6b08eb7df4388b8d00fce1de058c044cd6afb051/351b0a1b_e994_43f1_9746_89b59bee0223_jpg?variant_options%5Bformat%5D=webp&variant_options%5Bresize_to_fit%5D%5B%5D=1280&variant_options%5Bresize_to_fit%5D%5B%5D=720",
+      isVerified: true,
     },
   ]);
 
@@ -142,8 +146,11 @@ export const PostsDetails = () => {
                 <FaTag color="gray" size={25} />
                 <h2>Libros y revistas</h2>
               </div>
-
-              <SellerCard />
+              {photosDetailPosts[0].isVerified ? (
+                <SellerCardVerifedCustomer />
+              ) : (
+                <SellerCard />
+              )}
             </div>
           </div>
         </div>

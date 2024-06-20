@@ -22,7 +22,7 @@ const posts: Render_Posts[] = [
     moreDetails: "test",
     price: 11333,
     business_type: "Dealer",
-    isVerify: false,
+    isVerify: true,
   },
   {
     title: "Test",
@@ -41,7 +41,10 @@ export const RelatedPosts = () => {
       <h2 className="text-[20px] mt-6 font-bold">También te puede interesar</h2>
       <div className="flex gap-[40px] pb-4 h-full  items-center">
         {posts.map((relatePosts) => (
-          <Render_Resent_Posts posts={relatePosts}></Render_Resent_Posts>
+          <Render_Resent_Posts
+            posts={relatePosts}
+            relatedPost={true}
+          ></Render_Resent_Posts>
         ))}
       </div>
     </div>

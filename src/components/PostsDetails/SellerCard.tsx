@@ -2,11 +2,12 @@ import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { deepOrange } from "@mui/material/colors";
+import { ButtonModel } from "../ui/ButtonModel";
 import { SellerChat } from "./SellerChat";
 export const SellerCard = () => {
   return (
     <>
-      <div className="w-full h-[250px] border border-gray-300 px-3 py-3 rounded-lg">
+      <div className="w-full h-[300px] border border-gray-300 px-3 py-3 rounded-lg">
         <div className="flex items-center gap-2 mb-6">
           <Avatar src="/broken-image.jpg" />
           <div className="flex flex-col">
@@ -15,6 +16,17 @@ export const SellerCard = () => {
           </div>
         </div>
         <SellerChat />
+
+        <div className="mt-10">
+          <ButtonModel
+            width={"100%"}
+            height={"35px"}
+            bgColor={"white"}
+            textColor={"blue"}
+          >
+            Ver telefono
+          </ButtonModel>
+        </div>
       </div>
     </>
   );

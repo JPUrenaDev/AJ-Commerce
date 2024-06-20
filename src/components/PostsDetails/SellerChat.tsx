@@ -24,17 +24,6 @@ export const SellerChat = () => {
           </ButtonModel>
         </div>
       </div>
-
-      <div className="mt-10">
-        <ButtonModel
-          width={"100%"}
-          height={"30px"}
-          bgColor={"white"}
-          textColor={"black"}
-        >
-          Ver telefono
-        </ButtonModel>
-      </div>
     </div>
   );
 };

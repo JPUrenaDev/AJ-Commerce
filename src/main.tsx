@@ -5,8 +5,6 @@ import "./index.css";
 import { BrowserRouter, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
-import { SignUp } from "./components/SignUp/SignUp.tsx";
-import { FooterSignUp } from "./components/SignUp/ui/FooterSignUp.tsx";
 import { NavBar } from "./components/NavBar/NavBar.tsx";
 import { RouterProvider } from "react-router";
 import { Resent_Posts } from "./components/Posts/Resent_Posts.tsx";
@@ -27,7 +25,11 @@ const router = createBrowserRouter([
         element: <PostsDetails />,
       },
       {
-        path: "/login",
+        path: "postsDetails/:category",
+        element: <PostsDetails />,
+      },
+      {
+        path: "/login/",
         element: <Login />,
       },
     ],
