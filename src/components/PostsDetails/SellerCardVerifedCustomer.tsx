@@ -6,18 +6,30 @@ import { MdOutlineHorizontalRule } from "react-icons/md";
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
-
+import { FiTruck } from "react-icons/fi";
+import AnimateHeight from "react-animate-height";
 export const SellerCardVerifedCustomer = () => {
   const [isBlur, setIsBlur] = useState(true);
   const [modifyHeight, setModifyHeight] = useState(false);
+  const [height, setHeight] = useState("");
 
   const onToggleBlur = () => {
     setIsBlur(!isBlur);
   };
+
+  const onModifyHeight = () => {
+    setHeight(height === 0 ? "auto" : 0);
+  };
   return (
     <div>
       {" "}
-      <div className="w-full h-[570px] border border-gray-300 px-3 py-3 rounded-lg">
+      <div
+        onMouseEnter={onModifyHeight}
+        onMouseLeave={onModifyHeight}
+        className={`transition-all duration-500 ease-in-out border border-gray-300 px-4 py-3 rounded-lg w-full ${
+          modifyHeight ? "max-h-screen" : "max-h-23"
+        }`}
+      >
         <div className="flex items-center gap-2 mb-6">
           <Avatar src="/broken-image.jpg" />
           <div className="flex flex-col">
@@ -83,6 +95,22 @@ export const SellerCardVerifedCustomer = () => {
           <h2>Sitio web:</h2>
           <label>https://maps.app.goo.gl/B16QDb63jz4rTzhd6</label>
         </div>
+        <AnimateHeight
+          id="example-panel"
+          duration={500}
+          height={height} // see props documentation below
+        >
+          <h1>Your content goes here</h1>
+          <p>Put as many React or HTML components here.</p>
+          <h1>Your content goes here</h1>
+          <p>Put as many React or HTML components here.</p>
+          <h1>Your content goes here</h1>
+          <p>Put as many React or HTML components here.</p>
+          <h1>Your content goes here</h1>
+          <p>Put as many React or HTML components here.</p>
+          <h1>Your content goes here</h1>
+          <p>Put as many React or HTML components here.</p>
+        </AnimateHeight>
       </div>
     </div>
   );
