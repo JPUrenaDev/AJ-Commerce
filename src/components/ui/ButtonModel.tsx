@@ -23,10 +23,17 @@ export const ButtonModel = ({
   textColor,
   height,
   width,
+  hasFuntion = false,
 }) => {
   return (
-    <Button bgColor={bgColor} color={textColor} width={width} height={height}>
-      {children}
+    <Button
+      onClick={hasFuntion}
+      bgColor={bgColor}
+      color={textColor}
+      width={width}
+      height={height}
+    >
+      <div className="flex items-center gap-1 justify-center">{children}</div>
     </Button>
   );
 };
