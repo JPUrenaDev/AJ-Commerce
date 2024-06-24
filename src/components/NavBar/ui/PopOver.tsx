@@ -21,9 +21,9 @@ export const PopOver = ({ children }) => {
           <div
             id="popover-bottom"
             role="tooltip"
-            className="h-[540px] shadow-xl bg-gray-100 absolute z-10 flex gap-[9px] visible inline-block w-[590px]  top-11 right-2 left-3 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-100 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800"
+            className="h-[540px] shadow-xl bg-gray-100 absolute z-10 flex gap-[9px] visible inline-block w-[590px]  top-11 right-2 left-3 text-sm text-gray-500 transition-opacity duration-300 bg-gray border border-gray-200 rounded-lg shadow-sm opacity-100 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800"
           >
-            <div className="w-1/2 bg-white">
+            <div className="w-1/2 bg-white rounded-lg">
               <div className="px-3 flex  items-center justify-between    border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
                 <h3 className=" py-3 mb-2 font-bold text-gray-900 text-[20px] dark:text-white">
                   Categorías
@@ -64,8 +64,8 @@ export const PopOver = ({ children }) => {
               </div>
               <div data-popper-arrow></div>
             </div>
-            <div className="w-1/2 flex flex-col gap-3 ">
-              <div className="bg-white h-[210px]  pl-3 flex flex-col  ">
+            <div className="w-1/2 flex flex-col   ">
+              <div className="bg-white h-[230px]  pl-3 flex flex-col rounded-lg ">
                 <h3 className=" py-2 pl-3  font-bold text-gray-900 text-[20px] dark:text-white">
                   Otras opciones
                 </h3>
@@ -85,7 +85,7 @@ export const PopOver = ({ children }) => {
                   </Link>
                 </div>
               </div>
-              <div className="h-[300px] mt-3 bg-white pl-3  ">
+              <div className="h-[300px] mt-3 bg-white pl-3 rounded-lg ">
                 <h3 className=" py-3 mb-2 font-bold text-gray-900 text-[20px] dark:text-white">
                   Ayudas y ajustes
                 </h3>
