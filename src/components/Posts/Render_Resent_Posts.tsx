@@ -68,7 +68,7 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
             </h1>{" "}
             <h3>
               {posts.title.length > 10
-                ? posts.title.substring(0, 19) + "..."
+                ? posts.title.substring(0, 18) + "..."
                 : posts.title}
             </h3>{" "}
           </>

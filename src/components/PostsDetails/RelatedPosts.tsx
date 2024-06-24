@@ -38,8 +38,10 @@ const posts: Render_Posts[] = [
 export const RelatedPosts = () => {
   return (
     <div>
-      <h2 className="text-[20px] mt-6 font-bold">También te puede interesar</h2>
-      <div className="flex gap-[40px] pb-4 h-full  items-center">
+      <h2 className="text-[20px] mt-6 font-bold mb-8">
+        También te puede interesar
+      </h2>
+      <div className="flex gap-[40px] pb-4  w-auto h-full  items-center">
         {posts.map((relatePosts) => (
           <Render_Resent_Posts
             posts={relatePosts}
