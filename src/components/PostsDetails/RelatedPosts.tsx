@@ -37,8 +37,8 @@ const posts: Render_Posts[] = [
 ];
 export const RelatedPosts = () => {
   return (
-    <div>
-      <h2 className="text-[20px] mt-6 font-bold mb-8">
+    <div className=" w-[700px]">
+      <h2 className="text-[20px] mt-6 font-bold mb-8 ">
         También te puede interesar
       </h2>
       <div className="flex gap-[40px] pb-4  w-auto h-full  items-center">

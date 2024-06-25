@@ -60,7 +60,7 @@ const posts: Render_Posts[] = [
 
 export const Resent_Posts = () => {
   return (
-    <div className="bg-white mt-4 w-[1400px] rounded-lg px-4 py-4 mx-auto">
+    <div className="bg-white mt-4 w-[1400px] rounded-lg px-4 py-4 mx-auto ">
       <div className="flex items-center justify-between">
         <h1 className="font-bold text-[20px] mb-5">Publicaciones recientes</h1>
         <div className="flex items-center gap-3 ">

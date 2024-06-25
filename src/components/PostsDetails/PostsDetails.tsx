@@ -10,6 +10,8 @@ import { RiErrorWarningFill } from "react-icons/ri";
 import { useState } from "react";
 import { RelatedPosts } from "./RelatedPosts";
 import { SellerCardVerifedCustomer } from "./SellerCardVerifedCustomer";
+import { FiAlertCircle } from "react-icons/fi";
+
 export const PostsDetails = () => {
   const [photosDetailPosts, setPhotosDetailPosts] = useState([
     {
@@ -145,11 +147,22 @@ export const PostsDetails = () => {
                 <FaTag color="gray" size={25} />
                 <h2>Libros y revistas</h2>
               </div>
-              {photosDetailPosts[0].isVerified ? (
-                <SellerCardVerifedCustomer />
-              ) : (
-                <SellerCard />
-              )}
+              <div>
+                {photosDetailPosts[0].isVerified ? (
+                  <SellerCardVerifedCustomer />
+                ) : (
+                  <SellerCard />
+                )}
+              </div>
+              <div className="flex items-center gap-5">
+                <FiAlertCircle size={70} color="red" />
+                <p className="text-red-500 font-semibold">
+                  {" "}
+                  <span className="font-bold">Por tu seguridad,</span> no
+                  realices pagos por adelantado. Revisa el artículo y realiza la
+                  transacción personalmente en un lugar seguro.
+                </p>
+              </div>
             </div>
           </div>
         </div>

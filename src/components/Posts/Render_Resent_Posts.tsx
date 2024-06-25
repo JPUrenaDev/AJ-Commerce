@@ -67,7 +67,7 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
               {posts.price}
             </h1>{" "}
             <h3>
-              {posts.title.length > 10
+              {posts.title?.length > 10
                 ? posts.title.substring(0, 18) + "..."
                 : posts.title}
             </h3>{" "}
@@ -75,7 +75,7 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
         ) : (
           <>
             <h3>
-              {posts.title.length > 10
+              {posts.title?.length > 10
                 ? posts.title.substring(0, 40) + "..."
                 : posts.title}
             </h3>
@@ -84,7 +84,7 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
               <span>RD$</span>
               {posts.price}
             </h1>
-            <h2 className="">{posts.details}</h2>
+            <h2 className="">{posts?.details}</h2>
           </>
         )}
 

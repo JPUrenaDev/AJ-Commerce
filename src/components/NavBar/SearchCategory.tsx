@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { PopOver } from "./ui/PopOver";
 export const SearchCategory = () => {
   return (
-    <div className="flex items-center justify-center  mt-7 gap-[30px] text-white font-semi-bold">
+    <div className="flex items-center justify-center  mt-7 gap-[30px] text-white font-semi-bold opacity-100">
       <PopOver>
         <div className="flex items-center gap-4">
           <Link

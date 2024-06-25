@@ -10,7 +10,7 @@ import { RouterProvider } from "react-router";
 import { Resent_Posts } from "./components/Posts/Resent_Posts.tsx";
 import { Login } from "./components/Login/Login.tsx";
 import { PostsDetails } from "./components/PostsDetails/PostsDetails.tsx";
-
+import { Post } from "./pages/Post.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         element: <Resent_Posts />,
       },
       {
-        path: "/postsDetails",
-        element: <PostsDetails />,
+        path: "/post",
+        element: <Post />,
       },
       {
         path: "postsDetails/:category",
