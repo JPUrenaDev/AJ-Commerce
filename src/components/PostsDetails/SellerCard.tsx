@@ -1,7 +1,5 @@
-import React from "react";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
-import { deepOrange } from "@mui/material/colors";
+
 import { ButtonModel } from "../ui/ButtonModel";
 import { SellerChat } from "./SellerChat";
 export const SellerCard = () => {

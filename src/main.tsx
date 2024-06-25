@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import { NavBar } from "./components/NavBar/NavBar.tsx";
 import { RouterProvider } from "react-router";
-import { Resent_Posts } from "./components/Posts/Resent_Posts.tsx";
+
 import { Login } from "./components/Login/Login.tsx";
 import { PostsDetails } from "./components/PostsDetails/PostsDetails.tsx";
 import { Post } from "./pages/Post.tsx";
@@ -18,14 +18,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Resent_Posts />,
+        element: <Post />,
       },
       {
         path: "/post",
         element: <Post />,
       },
       {
-        path: "postsDetails/:category",
+        path: "postsDetails",
         element: <PostsDetails />,
       },
       {

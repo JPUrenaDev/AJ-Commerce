@@ -1,6 +1,6 @@
 import React from "react";
 import { Render_Posts } from "../../interface/Posts/types";
-import { Render_Resent_Posts } from "../Posts/Render_Resent_Posts";
+import { RenderPosts } from "../Posts/RenderPosts";
 
 const posts: Render_Posts[] = [
   {
@@ -43,10 +43,7 @@ export const RelatedPosts = () => {
       </h2>
       <div className="flex gap-[40px] pb-4  w-auto h-full  items-center">
         {posts.map((relatePosts) => (
-          <Render_Resent_Posts
-            posts={relatePosts}
-            relatedPost={true}
-          ></Render_Resent_Posts>
+          <RenderPosts posts={relatePosts}></RenderPosts>
         ))}
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 export const PopularCategory = () => {
   return (
-    <div className="bg-white mt-6 mb-6  w-[1254px] h-[290px]    px-[40px] py-4  ml-[250px] rounded-lg px-[40px] py-4 ">
+    <div className="bg-white mt-6 mb-6  w-[1080px] h-[290px]     px-[40px] py-4 mx-auto  rounded-lg px-[40px] py-4 ">
       <h2 className="font-bold text-[20px]  mb-4">Categorías Populares</h2>
       <div className="flex items-center gap-3 justify-center">
         <div className="border w-[210px] h-[200px] border-gray-300 cursor-pointer shadow-md rounded-md flex justify-center items-center flex-col">

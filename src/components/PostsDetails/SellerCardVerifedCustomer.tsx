@@ -110,21 +110,33 @@ export const SellerCardVerifedCustomer = () => {
         duration={1400}
         height={height} // see props documentation below
       >
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-4 flex   flex-wrap  items-center">
           <div className="flex flex-col items-center w-1/3 px-2">
-            <AiFillTool size={33} />
+            <AiFillTool size={33} color="gray" />
             <p className="text-[10px]">MANTENIMIENTO</p>
           </div>
           <div className="flex flex-col items-center w-1/3 px-2">
-            <FaRegCreditCard size={33} />
+            <FaRegCreditCard size={33} color="gray" />
             <p className="text-[10px]">TARJETA DE CREDITO</p>
           </div>
           <div className="flex flex-col items-center w-1/3 px-2">
-            <FaTruck size={33} />
+            <FaTruck size={33} color="gray" />
             <p className="text-[10px]">DELIVERY</p>
           </div>
-          <div className="flex flex-col items-center w-1/3 px-2">
-            <IoShieldCheckmark size={33} />
+          <div className="flex flex-col mt-6 items-center w-1/3 px-2">
+            <IoShieldCheckmark size={33} color="gray" />
+            <p className="text-[10px]">GARANTIA</p>
+          </div>
+          <div className="flex flex-col mt-6 items-center w-1/3 px-2">
+            <IoShieldCheckmark size={33} color="gray" />
+            <p className="text-[10px]">GARANTIA</p>
+          </div>
+          <div className="flex flex-col mt-6 items-center w-1/3 px-2">
+            <IoShieldCheckmark size={33} color="gray" />
+            <p className="text-[10px]">GARANTIA</p>
+          </div>
+          <div className="flex flex-col mt-6 items-center w-1/3 px-2">
+            <IoShieldCheckmark size={33} color="gray" />
             <p className="text-[10px]">GARANTIA</p>
           </div>
         </div>

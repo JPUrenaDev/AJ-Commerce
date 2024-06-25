@@ -7,18 +7,17 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 interface RenderResentPostsProps {
   posts: Render_Posts;
 }
-export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
-  posts,
-  relatedPost,
-}) => {
+export const RenderPosts: React.FC<RenderResentPostsProps> = ({ posts }) => {
   const [changeHeartColorwhenMouseEnter, setChangeColorwhenMouseEnter] =
     useState<boolean>(false);
 
   const color =
     posts.business_type === "Dealer"
-      ? "border-yellow-300 bg-yellow-300"
+      ? "border-blue-300 bg-blue-300"
       : posts.business_type === "Tienda"
       ? "border-blue-300 bg-blue-300"
+      : posts.business_type === "Agente"
+      ? "border-red-500 bg-red-500"
       : "";
 
   const whenMouseEnter = () => {
@@ -50,49 +49,30 @@ export const Render_Resent_Posts: React.FC<RenderResentPostsProps> = ({
               changeHeartColorwhenMouseEnter
                 ? "bg-white opacity-100"
                 : "bg-black opacity-70"
-            } w-[45px] h-[45px] right-3 b absolute rounded-lg bottom-3   border-white border`}
+            } w-[33px] h-[30px] right-[15px]  b absolute rounded-lg bottom-[14px]   border-white border`}
           ></div>
           <FaRegHeart
-            size={25}
+            size={17}
             color={changeHeartColorwhenMouseEnter ? "black" : "white"}
-            className="absolute right-[10px]  right-[21px] bottom-5  opacity-100 cursor-pointer"
+            className="absolute right-[22px]  right-[21px] bottom-5  opacity-100 cursor-pointer"
           />
         </div>
-
         {/* THE PRESENTATION OF THE ITEMS IS GONNA BE DIFFERENT IF IS THE RELATED POSTED OR THE ITEMS* */}
-        {relatedPost ? (
-          <>
-            <h1 className="font-bold">
-              <span>RD$</span>
-              {posts.price}
-            </h1>{" "}
-            <h3>
-              {posts.title?.length > 10
-                ? posts.title.substring(0, 18) + "..."
-                : posts.title}
-            </h3>{" "}
-          </>
-        ) : (
-          <>
-            <h3>
-              {posts.title?.length > 10
-                ? posts.title.substring(0, 40) + "..."
-                : posts.title}
-            </h3>
-
-            <h1 className="font-bold">
-              <span>RD$</span>
-              {posts.price}
-            </h1>
-            <h2 className="">{posts?.details}</h2>
-          </>
-        )}
-
+        <h3>
+          {posts.title?.length > 10
+            ? posts.title.substring(0, 18) + "..."
+            : posts.title}
+        </h3>{" "}
+        <h1 className="font-bold">
+          <span>RD$</span>
+          {posts.price}
+        </h1>
+        <h2 className="">{posts?.details}</h2>
         {posts.isVerify && (
-          <>
-            <RiVerifiedBadgeFill size={27} color="gray" />
+          <div className="flex items-center gap-2">
+            <RiVerifiedBadgeFill size={20} color="gray" />
             <span>Cuenta verificada</span>
-          </>
+          </div>
         )}
       </div>
     </>

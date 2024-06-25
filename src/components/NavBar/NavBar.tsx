@@ -8,7 +8,7 @@ import { FaPlus } from "react-icons/fa";
 export const NavBar = () => {
   return (
     <>
-      <div className="bg-blue-900 h-[120px] pt-3">
+      <div className="bg-blue-900 h-[120px] pt-3 fixed top-0 left-0 right-0 z-10">
         <div
           className=" flex items-center
     justify-center gap-9"
