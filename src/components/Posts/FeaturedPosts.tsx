@@ -51,8 +51,8 @@ const posts: RenderFeaturedPost[] = [
 
 export const FeaturedPosts = () => {
   return (
-    <div className="bg-white    rounded-lg px-[40px] py-4 ">
-      <div className=" ml-[4px] flex   justify-between">
+    <div className="bg-white    rounded-lg px-[60px] py-4 ">
+      <div className="  flex   justify-between">
         <h2 className="font-semibold text-[20px]">Publicaciones Destacadas</h2>
         <div className="flex items-center gap-3  cursor-pointer">
           <Link to={"/"} className="text-[18px] mb-5 text-blue-400">
