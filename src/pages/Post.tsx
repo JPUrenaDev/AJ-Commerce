@@ -4,6 +4,8 @@ import { PopularCategory } from "../components/Posts/PopularCategory";
 
 import { Render_Posts } from "../interface/Posts/types";
 import { Posts } from "../components/Posts/Posts";
+import { MoreForYou } from "../components/Posts/MoreForYou";
+import { ProfessionalsInterest } from "../components/Posts/ProfessionalsInterest";
 
 //AQUI LO QUE DEBO HACER ES LLAMAR CON REACT QUERY A CADA UNO DE LOS ENDPOINTS, O SEA LOS FILTROS, SI ES DEALER, VEHICULOS, ETC ETC.
 const posts: Render_Posts[] = [
@@ -71,6 +73,8 @@ export const Post = () => {
       <Posts postsArray={posts} title="Inmuebles" />
       <Posts postsArray={posts} title="Vehiculos" />
       <Posts postsArray={posts} title="Empleos" />
+      <MoreForYou />
+      <ProfessionalsInterest />
     </>
   );
 };
