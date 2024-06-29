@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { PopularSearch } from "./PopularSearch";
 import { IoIosArrowForward } from "react-icons/io";
+import { RenderHelperFooterOptions } from "./RenderHelperFooterOptions";
+
+const HelperFooterOptions = {
+  help: ["Centro de ayuda", "Centro de ayuda", "Centro de ayuda"],
+};
+
 export const Footer = () => {
+  const [onMouseOver, setOnMouseOver] = useState(false);
+  const onMouseEnter = () => {
+    setOnMouseOver(true);
+  };
+
+  const onMouseLeave = () => {
+    setOnMouseOver(false);
+  };
   return (
     <div className="w-full bg-white mt-4 h-[550px]">
       <PopularSearch />
@@ -55,14 +69,21 @@ export const Footer = () => {
         </div>
 
         <div className="flex items-center gap-[200px]">
-          <div className="flex flex-col justify-center self-start ">
+          <div className="flex flex-col self-start gap-5">
+            <h2 className="font-semibold">Ayuda</h2>
+
+            {HelperFooterOptions.help.map((help) => (
+              <RenderHelperFooterOptions options={help} />
+            ))}
+          </div>
+          <div className="flex flex-col justify-center self-start gap-5 ">
             <h2 className="font-semibold">J&A Commerce</h2>
 
             <h2>Centro de ayuda</h2>
             <h2>Uso y Reglas</h2>
             <h2>Contactanos</h2>
           </div>
-          <div className="flex flex-col justify-center gap-4 ">
+          <div className="flex flex-col justify-center gap-5 ">
             <h2 className="font-semibold">Siguenos</h2>
 
             <h2>Facebook</h2>
