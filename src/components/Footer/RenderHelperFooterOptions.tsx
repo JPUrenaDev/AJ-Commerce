@@ -17,9 +17,13 @@ export const RenderHelperFooterOptions = ({
     setOnMouseOver(false);
   };
   return (
-    <div className="flex items-center gap-3 w-[150px]">
+    <div
+      className={`flex items-center gap-3 w-[150px] ${
+        onMouseOver && "text-blue-900 font-semibold"
+      }`}
+    >
       <h1
-        className="cursor-pointer"
+        className={`cursor-pointer `}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
