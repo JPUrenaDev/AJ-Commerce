@@ -18,8 +18,8 @@ export const RenderHelperFooterOptions = ({
   };
   return (
     <div
-      className={`flex items-center gap-3 w-[150px] ${
-        onMouseOver && "text-blue-900 font-semibold"
+      className={`flex items-center gap-2 w-[200px] ${
+        onMouseOver && "text-blue-900 font-semibold "
       }`}
     >
       <h1
@@ -29,7 +29,7 @@ export const RenderHelperFooterOptions = ({
       >
         {options}
       </h1>
-      {onMouseOver && <IoIosArrowForward />}
+      {onMouseOver && <IoIosArrowForward size={20} />}
     </div>
   );
 };

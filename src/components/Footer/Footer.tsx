@@ -1,23 +1,32 @@
-import React, { useState } from "react";
 import { PopularSearch } from "./PopularSearch";
-import { IoIosArrowForward } from "react-icons/io";
 import { RenderHelperFooterOptions } from "./RenderHelperFooterOptions";
 
 const HelperFooterOptions = {
   help: ["Centro de ayuda", "Centro de ayuda", "Centro de ayuda"],
+  FollowUs: [
+    "Facebook",
+    "Instagram",
+    "Youtube",
+    "Linkedln",
+    "Youtube",
+    "TikTok",
+    "Twitter",
+  ],
+  JYACommerce: [
+    "Blog",
+    "Soluciones",
+    "Publicidad",
+    "Donaciones",
+    "PinPun",
+    "Términos y Condiciones",
+    "Programa de Usuarios",
+    "Resultados de la lotería",
+  ],
 };
 
 export const Footer = () => {
-  const [onMouseOver, setOnMouseOver] = useState(false);
-  const onMouseEnter = () => {
-    setOnMouseOver(true);
-  };
-
-  const onMouseLeave = () => {
-    setOnMouseOver(false);
-  };
   return (
-    <div className="w-full bg-white mt-4 h-[550px]">
+    <div className="w-full bg-white mt-4 h-[610px]">
       <PopularSearch />
       <div className="border border-gray-300"></div>
 
@@ -79,20 +88,16 @@ export const Footer = () => {
           <div className="flex flex-col justify-center self-start gap-5 ">
             <h2 className="font-semibold">J&A Commerce</h2>
 
-            <h2>Centro de ayuda</h2>
-            <h2>Uso y Reglas</h2>
-            <h2>Contactanos</h2>
+            {HelperFooterOptions.JYACommerce.map((help) => (
+              <RenderHelperFooterOptions options={help} />
+            ))}
           </div>
-          <div className="flex flex-col justify-center gap-5 ">
+          <div className="flex flex-col justify-center gap-5 self-start ">
             <h2 className="font-semibold">Siguenos</h2>
 
-            <h2>Facebook</h2>
-            <h2>Instagram</h2>
-            <h2>Youtube</h2>
-            <h2>Linkedln</h2>
-            <h2>Youtube</h2>
-            <h2>TikTok</h2>
-            <h2>Twitter</h2>
+            {HelperFooterOptions.FollowUs.map((help) => (
+              <RenderHelperFooterOptions options={help} />
+            ))}
           </div>
         </div>
       </div>
