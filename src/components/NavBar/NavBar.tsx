@@ -30,9 +30,6 @@ export const NavBar = () => {
         </div>
         <SearchCategory />
       </div>
-      <div className="mt-[300px]">
-        <Outlet />
-      </div>
     </>
   );
 };

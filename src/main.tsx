@@ -11,10 +11,18 @@ import { RouterProvider } from "react-router";
 import { Login } from "./components/Login/Login.tsx";
 import { PostsDetails } from "./components/PostsDetails/PostsDetails.tsx";
 import { Post } from "./pages/Post.tsx";
+import path from "path";
+import { Estate } from "./pages/Estate.tsx";
+import { Footer } from "./components/Footer/Footer.tsx";
+import { Layout } from "./Layout.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavBar />,
+    element: (
+      <div className="flex flex-col">
+        <Layout />
+      </div>
+    ),
     children: [
       {
         path: "/",
@@ -32,6 +40,7 @@ const router = createBrowserRouter([
         path: "/login/",
         element: <Login />,
       },
+      { path: "/inmuebles", element: <Estate /> },
     ],
   },
 ]);

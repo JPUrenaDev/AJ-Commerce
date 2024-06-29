@@ -76,7 +76,6 @@ export const Post = () => {
       <Posts postsArray={posts} title="Empleos" />
       <MoreForYou />
       <ProfessionalsInterest />
-      <Footer />
     </>
   );
 };
