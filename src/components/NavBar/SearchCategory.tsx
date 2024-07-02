@@ -19,7 +19,7 @@ export const SearchCategory = () => {
         </div>
       </PopOver>
       <div className="flex items-center gap-10 font-semibold ">
-        <Link to={"/"}>Inmuebles</Link>
+        <Link to={"/inmuebles"}>Inmuebles</Link>
         <Link to={"/"}>Vehículos</Link>
         <Link to={"/"}>Electrónica</Link>
         <Link to={"/"}>Hogar</Link>

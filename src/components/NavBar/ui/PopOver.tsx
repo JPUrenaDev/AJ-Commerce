@@ -33,7 +33,7 @@ export const PopOver = ({ children }) => {
                 </Link>
               </div>
               <div className=" relative top-3 mt-2 px-3   gap-4 space-y-1  grid grid-cols-1 divide-y">
-                <Link to={"/"}>Inmuebles</Link>
+                <Link to={"/inmuebles"}>Inmuebles</Link>
                 <Link className="pt-2" to={"/"}>
                   Vehículos
                 </Link>
