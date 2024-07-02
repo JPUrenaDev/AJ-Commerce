@@ -26,7 +26,7 @@ const HelperFooterOptions = {
 
 export const Footer = () => {
   return (
-    <div className="w-full bg-white mt-4 h-[610px] ">
+    <div className="w-full bg-white mt-4 h-[650px] ">
       <PopularSearch />
       <div className="border border-gray-300"></div>
 
@@ -36,7 +36,7 @@ export const Footer = () => {
             <h2>¡Descarga la App y llévate a Corotos</h2>
             <span>a todas partes!</span>
           </h2>
-          <div className="cursor-pointer">
+          <div className="cursor-pointer ">
             <div className="bg-black w-full h-full px-3 rounded-lg flex items-center gap-3 py-2">
               <img
                 src="./image/1664285914google-play-logo-png.png"
