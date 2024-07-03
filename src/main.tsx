@@ -12,9 +12,10 @@ import { Login } from "./components/Login/Login.tsx";
 import { PostsDetails } from "./components/PostsDetails/PostsDetails.tsx";
 import { Post } from "./pages/Post.tsx";
 import path from "path";
-import { Estate } from "./pages/Estate.tsx";
-import { Footer } from "./components/Footer/Footer.tsx";
+import { EstatePage } from "./pages/EstatePage.tsx";
+
 import { Layout } from "./Layout.tsx";
+import { CarouselComponent } from "./components/Estate/Carousel.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,7 +41,8 @@ const router = createBrowserRouter([
         path: "/login/",
         element: <Login />,
       },
-      { path: "/inmuebles", element: <Estate /> },
+      { path: "/inmuebles", element: <EstatePage /> },
+      { path: "/prueba", element: <CarouselComponent /> },
     ],
   },
 ]);

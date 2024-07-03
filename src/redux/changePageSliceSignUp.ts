@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { userData } from "../interface/Posts/types";
 import { IFormInput } from "../interface/Posts/types";
 export interface CounterState {
   value: number;
