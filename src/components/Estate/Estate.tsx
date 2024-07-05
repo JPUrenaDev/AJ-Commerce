@@ -6,6 +6,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { CarouselComponent } from "./Carousel";
+import { Recommended } from "./Recommended";
+import { SellYourEstate } from "./SellYourEstate";
 
 export const Estate = () => {
   return (
@@ -59,6 +61,8 @@ export const Estate = () => {
         </div>
       </div>
       <CarouselComponent />
+      <Recommended />
+      <SellYourEstate />
     </>
   );
 };
