@@ -2,7 +2,7 @@ import React from "react";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 export const RenderRecommended = ({ posts }) => {
   return (
-    <div className="flex flex-col  px-2 w-[200px] relative cursor-pointer ">
+    <div className="  px-2 w-[200px] relative cursor-pointer ">
       <img src={posts.img} className="rounded-md  "></img>
       <h3 className="font-bold">{posts.title}</h3>
       <div id="typeAndPrice" className="flex items-center justify-between">

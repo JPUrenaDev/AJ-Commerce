@@ -8,6 +8,10 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { CarouselComponent } from "./Carousel";
 import { Recommended } from "./Recommended";
 import { SellYourEstate } from "./SellYourEstate";
+import { OurAgents } from "./OurAgents";
+import { Category } from "./Category";
+import { RecentPosts } from "./RecentPosts";
+import { LifestyleBased } from "./LifestyleBased";
 
 export const Estate = () => {
   return (
@@ -63,6 +67,10 @@ export const Estate = () => {
       <CarouselComponent />
       <Recommended />
       <SellYourEstate />
+      <OurAgents />
+      <Category />
+      <RecentPosts />
+      <LifestyleBased />
     </>
   );
 };

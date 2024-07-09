@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const SellYourEstate = () => {
   return (
-    <div className="ml-[410px] mt-[50px] flex items-center gap-3 w-[55%] ">
+    <div className=" mt-[50px]    mx-auto   w-[60rem] flex gap-3">
       <div className="border border-gray-300 w-[50%] h-[180px] shadow-inner rounded-md px-5 py-3">
         <div className="flex flex-col">
           <h3 className="font-bold text-[20px] ">Vende tu inmueble</h3>

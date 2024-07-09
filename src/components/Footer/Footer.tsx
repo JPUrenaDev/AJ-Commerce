@@ -26,7 +26,7 @@ const HelperFooterOptions = {
 
 export const Footer = () => {
   return (
-    <div className="w-full bg-white mt-4 h-[650px] ">
+    <div className="w-full bg-white mt-4 h-[650px]  ">
       <PopularSearch />
       <div className="border border-gray-300"></div>
 

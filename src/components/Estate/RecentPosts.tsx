@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RenderRecommended } from "./RenderRecommended";
 import { IoIosArrowForward } from "react-icons/io";
-const recommendedPosts = [
+const RecentPostsItems = [
   {
     id: 1,
     title: "Alquiler de fabuloso",
@@ -93,7 +93,7 @@ const recommendedPosts = [
     isVerify: true,
   },
 ];
-export const Recommended = () => {
+export const RecentPosts = () => {
   const [showScrollX, setShowScrollX] = useState(false);
 
   const onMouseEnter = () => {
@@ -106,21 +106,23 @@ export const Recommended = () => {
   return (
     <div className=" mt-[50px]    mx-auto   w-[60rem] ">
       <div className="flex justify-between items-center mb-3">
-        <h1 className="font-bold text-[24px] text-blue-800">Recomendados</h1>
+        <h1 className="font-bold text-[24px] text-blue-800">
+          Publicaciones Recientes
+        </h1>
         <div className="flex items-center gap-2 text-blue-800 font-bold">
           <h2>Ver más</h2>
           <IoIosArrowForward />
         </div>
       </div>
       <div
-        className={` ${
+        className={`  ${
           showScrollX ? "overflow-x-auto" : "overflow-x-hidden"
-        }  mt-[50px]    mx-auto   w-[60rem]  `}
+        }  mt-[50px]    mx-auto   w-[60rem]`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
         <div className="flex gap-[10px] items-center">
-          {recommendedPosts.map((post, index) => (
+          {RecentPostsItems.map((post, index) => (
             <div key={index} className=" w-48">
               <RenderRecommended posts={post} />
             </div>
