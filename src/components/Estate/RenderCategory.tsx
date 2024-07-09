@@ -9,7 +9,7 @@ type RenderCategoryProps = {
 };
 export const RenderCategory = ({ category }: RenderCategoryProps) => {
   return (
-    <div className="cursor-pointer bg-white rounded-full w-[90px] h-[80px] shadow-2xl flex items-center justify-center">
+    <div className="cursor-pointer bg-white rounded-full w-[90px] h-[80px] mb-[50px] shadow-2xl flex items-center justify-center">
       {category.icon}
     </div>
   );

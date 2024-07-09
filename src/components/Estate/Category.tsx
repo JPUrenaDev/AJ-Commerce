@@ -100,14 +100,14 @@ const category = [
 export const Category = () => {
   return (
     <div className=" mt-[50px]    mx-auto   w-[60rem] ">
-      <div className="flex justify-between items-center mb-3">
-        <h1 className="font-bold text-[24px] text-blue-800">Categorias</h1>
+      <div className="flex justify-between items-center mb-[50px]">
+        <h1 className="font-bold text-[24px] text-blue-800 mb-6">Categorias</h1>
         <div className="flex items-center gap-2 text-blue-800 font-bold">
           <h2>Ver más</h2>
           <IoIosArrowForward />
         </div>
       </div>
-      <div className="flex items-center justify-between ml-5 gap-[50px] mt-5">
+      <div className="flex items-center justify-between ml-5 gap-[50px] mt-5 ">
         {category.map((category) => {
           return <RenderCategory category={category} />;
         })}

@@ -66,7 +66,7 @@ export const OurAgents = () => {
   return (
     <div className=" mt-[50px]    mx-auto   w-[60rem] ">
       <div className="flex justify-between items-center mb-3">
-        <h1 className="font-bold text-[24px] text-blue-800">
+        <h1 className="font-bold text-[24px] text-blue-800 mb-[50px]">
           Nuestros Agentes
         </h1>
         <div className="flex items-center gap-2 text-blue-800 font-bold">

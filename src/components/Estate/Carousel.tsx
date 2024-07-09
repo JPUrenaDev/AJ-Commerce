@@ -23,7 +23,7 @@ const responsive = {
 const customStyleImages = {
   display: "block",
   height: "90%",
-  width: "89%",
+  width: "70%",
   margin: "0px",
   borderRadius: "23px",
 };

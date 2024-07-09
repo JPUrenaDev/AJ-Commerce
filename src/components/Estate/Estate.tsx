@@ -12,6 +12,8 @@ import { OurAgents } from "./OurAgents";
 import { Category } from "./Category";
 import { RecentPosts } from "./RecentPosts";
 import { LifestyleBased } from "./LifestyleBased";
+import { Ads } from "./Ads";
+import { ExploreOurBlog } from "./ExploreOurBlog";
 
 export const Estate = () => {
   return (
@@ -71,6 +73,8 @@ export const Estate = () => {
       <Category />
       <RecentPosts />
       <LifestyleBased />
+      <Ads />
+      <ExploreOurBlog />
     </>
   );
 };
